@@ -35,8 +35,6 @@ const App = () => {
 		checkIsWinner();
 	};
 
-	const setAlert = () => {};
-
 	const checkIsWinner = () => {
 		if (itemArray[0] === itemArray[1] && itemArray[1] === itemArray[2] && itemArray[0] !== "empty") {
 			setWinMessage(`${itemArray[0]} WINS!`);
@@ -54,6 +52,20 @@ const App = () => {
 			setWinMessage(`${itemArray[0]} WINS!`);
 		} else if (itemArray[2] === itemArray[4] && itemArray[4] === itemArray[6] && itemArray[6] !== "empty") {
 			setWinMessage(`${itemArray[6]} WINS!`);
+		}
+		//
+		else if (
+			itemArray[0] !== "empty" &&
+			itemArray[1] !== "empty" &&
+			itemArray[2] !== "empty" &&
+			itemArray[3] !== "empty" &&
+			itemArray[4] !== "empty" &&
+			itemArray[5] !== "empty" &&
+			itemArray[6] !== "empty" &&
+			itemArray[7] !== "empty" &&
+			itemArray[8] !== "empty"
+		) {
+			setWinMessage("ENDS IN A DRAW...");
 		}
 	};
 
