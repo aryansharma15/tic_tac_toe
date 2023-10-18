@@ -15,9 +15,33 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  transition: background-color 0.5s ease;
+  cursor: pointer;
+}
+
+.box:hover {
+  background-color: #572ce6;
 }
 
 .icon {
   font-size: 35px;
   color: #ffffff;
+}
+
+.winner {
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
 }

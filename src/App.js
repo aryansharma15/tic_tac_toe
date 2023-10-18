@@ -76,7 +76,7 @@ const App = () => {
 				<Col md={6} className="offset-md-3">
 					{winMessage ? (
 						<div className="my-2">
-							<h1 className="text-danger text-uppercase text-center mb-5">{winMessage}</h1>
+							<h1 className="text-danger text-uppercase text-center mb-5 winner">{winMessage}</h1>
 							<Button color="success" block onClick={reloadGame} className="my-5">
 								New Game
 							</Button>
