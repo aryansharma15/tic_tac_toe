@@ -12,16 +12,12 @@ const itemArray = new Array(9).fill("empty");
 
 const App = () => {
 	const [isCross, setIsCross] = useState(false);
-	const [winMessage, setWinMessage] = useState("Circle Wins");
+	const [winMessage, setWinMessage] = useState("");
 
 	const reloadGame = () => {
 		setIsCross(false);
 		setWinMessage("");
 		itemArray.fill("empty", 0, 9);
-	};
-
-	const checkIsWinner = () => {
-		//
 	};
 
 	const changeItem = (itemNumber) => {
@@ -41,25 +37,25 @@ const App = () => {
 
 	const setAlert = () => {};
 
-	// const checkWinner = () => {
-	// 	if (itemArray[0] === itemArray[1] && itemArray[1] === itemArray[2] && itemArray[0] !== "empty") {
-	// 		setAlert(`${itemArray[0]} WINS!`);
-	// 	} else if (itemArray[3] === itemArray[4] && itemArray[4] === itemArray[5] && itemArray[3] !== "empty") {
-	// 		setAlert(`${itemArray[3]} WINS!`);
-	// 	} else if (itemArray[6] === itemArray[7] && itemArray[7] === itemArray[8] && itemArray[6] !== "empty") {
-	// 		setAlert(`${itemArray[6]} WINS!`);
-	// 	} else if (itemArray[0] === itemArray[3] && itemArray[3] === itemArray[6] && itemArray[6] !== "empty") {
-	// 		setAlert(`${itemArray[6]} WINS!`);
-	// 	} else if (itemArray[1] === itemArray[4] && itemArray[4] === itemArray[7] && itemArray[1] !== "empty") {
-	// 		setAlert(`${itemArray[1]} WINS!`);
-	// 	} else if (itemArray[2] === itemArray[5] && itemArray[5] === itemArray[8] && itemArray[2] !== "empty") {
-	// 		setAlert(`${itemArray[2]} WINS!`);
-	// 	} else if (itemArray[0] === itemArray[4] && itemArray[4] === itemArray[8] && itemArray[0] !== "empty") {
-	// 		setAlert(`${itemArray[0]} WINS!`);
-	// 	} else if (itemArray[2] === itemArray[4] && itemArray[4] === itemArray[6] && itemArray[6] !== "empty") {
-	// 		setAlert(`${itemArray[6]} WINS!`);
-	// 	}
-	// };
+	const checkIsWinner = () => {
+		if (itemArray[0] === itemArray[1] && itemArray[1] === itemArray[2] && itemArray[0] !== "empty") {
+			setWinMessage(`${itemArray[0]} WINS!`);
+		} else if (itemArray[3] === itemArray[4] && itemArray[4] === itemArray[5] && itemArray[3] !== "empty") {
+			setWinMessage(`${itemArray[3]} WINS!`);
+		} else if (itemArray[6] === itemArray[7] && itemArray[7] === itemArray[8] && itemArray[6] !== "empty") {
+			setWinMessage(`${itemArray[6]} WINS!`);
+		} else if (itemArray[0] === itemArray[3] && itemArray[3] === itemArray[6] && itemArray[6] !== "empty") {
+			setWinMessage(`${itemArray[6]} WINS!`);
+		} else if (itemArray[1] === itemArray[4] && itemArray[4] === itemArray[7] && itemArray[1] !== "empty") {
+			setWinMessage(`${itemArray[1]} WINS!`);
+		} else if (itemArray[2] === itemArray[5] && itemArray[5] === itemArray[8] && itemArray[2] !== "empty") {
+			setWinMessage(`${itemArray[2]} WINS!`);
+		} else if (itemArray[0] === itemArray[4] && itemArray[4] === itemArray[8] && itemArray[0] !== "empty") {
+			setWinMessage(`${itemArray[0]} WINS!`);
+		} else if (itemArray[2] === itemArray[4] && itemArray[4] === itemArray[6] && itemArray[6] !== "empty") {
+			setWinMessage(`${itemArray[6]} WINS!`);
+		}
+	};
 
 	return (
 		<Container className="p-5">
@@ -68,7 +64,7 @@ const App = () => {
 				<Col md={6} className="offset-md-3">
 					{winMessage ? (
 						<div className="my-2">
-							<h1 className="text-primary text-uppercase text-center mb-5">{winMessage}</h1>
+							<h1 className="text-danger text-uppercase text-center mb-5">{winMessage}</h1>
 							<Button color="success" block onClick={reloadGame} className="my-5">
 								New Game
 							</Button>
@@ -81,7 +77,7 @@ const App = () => {
 					<div className="grid">
 						{itemArray.map((item, index) => {
 							return (
-								<Card>
+								<Card color="primary" onClick={() => changeItem(index)}>
 									<CardBody className="box">
 										<Icon name={item} />
 									</CardBody>

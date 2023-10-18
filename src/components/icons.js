@@ -8,11 +8,11 @@ const Icon = ({ name }) => {
 			break;
 
 		case "cross":
-			return <FaTimes></FaTimes>;
+			return <FaTimes className="icon"></FaTimes>;
 			break;
 
 		default:
-			return <FaPen></FaPen>;
+			return <FaPen className="icon"></FaPen>;
 			break;
 	}
 
