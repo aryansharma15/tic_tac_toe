@@ -16,11 +16,7 @@ const Icon = ({ name }) => {
 			break;
 	}
 
-	return (
-		<>
-			<div></div>
-		</>
-	);
+	return <></>;
 };
 
 export default Icon;
